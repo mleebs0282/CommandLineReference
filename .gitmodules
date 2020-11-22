@@ -1,0 +1,4 @@
+[submodule "CommandLineReference"]
+	path = CommandLineReference
+	url = https://github.com/mleebs0282/CommandLineReference.git
+	branch = master
