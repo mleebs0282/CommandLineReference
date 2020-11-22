@@ -24,7 +24,14 @@ namespace CLIReference.Web
         {
             services.AddControllers();
 
-            services.AddSpaStaticFiles(options => options.RootPath = "/web");
+            services.AddSpaStaticFiles(options => options.RootPath = "web");
+
+            services.AddCors(options =>
+            {
+                options.AddPolicy(
+                    "Open",
+                    builder => builder.AllowAnyOrigin().AllowAnyHeader());
+            });
 
             services.AddDbContext<CommandDbContext>(options =>
             {
@@ -42,8 +49,16 @@ namespace CLIReference.Web
             {
                 app.UseDeveloperExceptionPage();
             }
+            else
+            {
+                app.UseHsts();
+            }
+
+            app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseCors("Open");
 
             app.UseAuthorization();
 

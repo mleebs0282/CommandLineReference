@@ -1,5 +1,6 @@
 ﻿using CLIReference.Application.Interfaces;
 using CLIReference.Application.ViewModels;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -19,6 +20,8 @@ namespace CLIReference.Web.Controllers
             _commandService = commandService;
         }
 
+        [HttpGet]
+        [EnableCors("AllowAllHeaders")]
         public CommandViewModel GetCommands()
         {
             return _commandService.GetCommands();
