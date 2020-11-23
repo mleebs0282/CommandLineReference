@@ -11,9 +11,9 @@ namespace CLIReference.Application.Services
         {
             _commandRepository = commandRepository;
         }
-        public CommandViewModel GetCommands()
+        public CommandDTO GetCommands()
         {
-            return new CommandViewModel()
+            return new CommandDTO()
             {
                 Commands = _commandRepository.GetCommands()
             };

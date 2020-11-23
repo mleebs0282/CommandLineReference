@@ -6,9 +6,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using CLIReference.Web.VueCoreConnection;
 
-namespace CLIReference.Web
+namespace CLIReference.Api
 {
     public class Startup
     {
@@ -23,8 +22,6 @@ namespace CLIReference.Web
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-
-            services.AddSpaStaticFiles(options => options.RootPath = "web");
 
             services.AddCors(options =>
             {
@@ -49,10 +46,6 @@ namespace CLIReference.Web
             {
                 app.UseDeveloperExceptionPage();
             }
-            else
-            {
-                app.UseHsts();
-            }
 
             app.UseHttpsRedirection();
 
@@ -65,16 +58,6 @@ namespace CLIReference.Web
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
-            });
-
-            app.UseSpaStaticFiles();
-            app.UseSpa(spa =>
-            {
-                spa.Options.SourcePath = "/web";
-                if (env.IsDevelopment())
-                {
-                    spa.UseVueDevelopmentServer();
-                }
             });
         }
 

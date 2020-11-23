@@ -1,14 +1,9 @@
 ﻿using CLIReference.Application.Interfaces;
 using CLIReference.Application.ViewModels;
 using Microsoft.AspNetCore.Cors;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
-namespace CLIReference.Web.Controllers
+namespace CLIReference.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -21,8 +16,8 @@ namespace CLIReference.Web.Controllers
         }
 
         [HttpGet]
-        [EnableCors("AllowAllHeaders")]
-        public CommandViewModel GetCommands()
+        [EnableCors("Open")]
+        public CommandDTO GetCommands()
         {
             return _commandService.GetCommands();
         }

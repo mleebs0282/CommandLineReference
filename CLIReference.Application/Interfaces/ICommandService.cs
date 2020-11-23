@@ -4,6 +4,6 @@ namespace CLIReference.Application.Interfaces
 {
     public interface ICommandService
     {
-        CommandViewModel GetCommands();
+        CommandDTO GetCommands();
     }
 }

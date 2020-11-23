@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace CLIReference.Application.ViewModels
 {
-    public class CommandViewModel
+    public class CommandDTO
     {
         public IEnumerable<Command> Commands { get; set; }
     }
